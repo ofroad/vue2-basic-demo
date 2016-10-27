@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>测试watch延时改变数据</h3>
+			<hr>
+			<p><input v-model="question" /></p>
+			<p>{{ answer }}</p>
+			<h3>测试computed延时改变数据</h3>
+			<hr>
+			<p><input v-model="testComputedQuestion" /></p>
+			<p>{{ testComputedAnswer }}</p>
+		</div>
+
+		<script>
+			/*
+				
+				计算属性在所依赖的数据发生更改时立即就会改变，不能在执行异步操作后才改变状态
+
+				使用watch，可以执行异步操作（或是访问接口），并在获取最终结果时立刻设置状态
+
+
+			*/
+			var vm = new Vue({
+				el:"#demo",
+				data:{
+					question:"",
+					answer:"I cannot give you an answer until you ask a question!",
+					testComputedQuestion:"",
+					testComputedAnswer:"正在为拉取数据，请稍等。。。"
+				},
+				watch:{
+					question:function (val){
+						this.answer = "Waiting for you to stop typing..."
+
+						this.getAnswer();
+					}
+				},
+				methods:{
+					getAnswer:function (){
+						clearTimeout(this.timer);
+						this.timer = setTimeout(()=>{
+							console.log(123);
+							this.answer = "接收到了数据。。。"
+						},500)	
+					},
+					testAnswer:function (){
+						clearTimeout(this.timer);
+						this.timer = setTimeout(()=>{
+							this.testComputedQuestion = "接收到了数据。。。"
+						},500)	
+					}
+				},
+				computed:{
+					testComputedAnswer:function (){
+						this.testAnswer();
+						//如果没有return这一步，那么testComputedAnswer就不会依赖testComputedQuestion
+						//return this.testComputedQuestion;	
+						return this.testComputedQuestion;	
+					}
+				}
+				
+			});
+
+		</script>
+	</body>
+</html>

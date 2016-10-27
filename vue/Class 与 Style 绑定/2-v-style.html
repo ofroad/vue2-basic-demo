@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<p v-bind:style="{color:'red','font-size':'50px'}">绑定对象字符串的形式</p>
+			<p v-bind:style="styleObj">绑定数据中的对象</p>
+			<p v-bind:style="[styleObj1,styleObj2]">绑定数组</p>
+			<p v-bind:style="addStyleObj">使用计算属性</p>
+	
+		</div>
+
+		<script>
+			/*
+				可以在标签行间利用v-bind绑定class和style
+				v-bind在处理的时候只需要计算出表达式最终的字符串
+
+				v-bind:style 是一个对象的形式存在
+
+					
+
+			*/
+			var vm = new Vue({
+				el:"#demo",
+				data:{
+					styleObj:{color:'blue','font-size':'30px'},
+					styleObj1:{
+						'font-size': "50px"
+					},
+					styleObj2:{
+						border: '1px solid #000'
+					}
+				},
+				computed:{
+					addStyleObj:function (){
+						//可以在这里做一系列操作
+						return {
+							color:'red',
+							border: '1px solid #000'
+						}	
+					}
+				}
+			});
+
+		</script>
+	</body>
+</html>

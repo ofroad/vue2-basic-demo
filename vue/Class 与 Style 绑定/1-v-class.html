@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<p :class="className1">测试className为字符串</p>
+			<p :class="{blue:isActive}">测试className为对象，如果isActive为true则添加</p>
+			<p class="fontSize" :class="{red:isActive}">可以和普通的class特性共存</p>
+			<p :class="classObj">绑定数据里的对象</p>
+			<p :class="addClassObj">绑定计算属性，功能更加强大</p>
+			<p :class='[isActive ? "red" : "","fontSize"]'>绑定数据里的数组,可以写三目表达式</p>
+			<p :class='[{blue:isActive},"fontSize"]'>绑定数据里的数组,可使用对象形式代替三目表达式</p>
+
+		</div>
+
+		<script>
+			/*
+				可以在标签行间利用v-bind绑定class和style
+				v-bind在处理的时候只需要计算出表达式最终的字符串
+
+				v-bind:class 不止是可以用字符串，也可以使用对象或数组
+
+					
+
+			*/
+			var vm = new Vue({
+				el:"#demo",
+				data:{
+					className1:"red",
+					isActive:true,
+					classObj:{
+						red:false,
+						fontSize:true
+					}
+				},
+				computed:{
+					addClassObj:function (){
+						//可以在这里做一系列操作
+						return {
+							blue:this.isActive,
+							fontSize:true
+						}	
+					}
+				}
+			});
+
+		</script>
+	</body>
+</html>
