@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-show选择渲染元素</h3>
+			<hr>
+			<p v-show="isDisplay">display:{{isDisplay}}</p>
+			<p v-show="!isDisplay">display:{{isDisplay}}</p>
+
+			
+
+		</div>
+
+		<script>
+
+			/*
+				使用指令v-show，元素依然保持在文档中，只是简单的切换了元素的display属性
+
+				v-show不支持<template>语法，并且不能配合v-else使用
+
+
+
+				v-if vs v-show
+
+					v-if会有一个局部的编译/卸载的过程
+					v-if 是真实的条件渲染，因为它会确保条件块在切换当中适当地销毁与重建条件块内的事件监听器和子组件
+					v-if 也是惰性的：如果在初始渲染时条件为假，则什么也不做——在条件第一次变为真时才开始局部编译（编译会被缓存起来）。
+
+					相比之下， v-show 简单得多——元素始终被编译并保留，只是简单地基于 CSS 切换。
+
+					使用v-if会有更高的切换消耗
+					使用v-show会有更高的初始渲染消耗
+
+					如果需要频繁切换，选择v-show比较好
+					如果运行中不大可能切换，选择v-if比较好
+
+			*/
+
+			new Vue({
+				el: "#demo",
+				data:{
+					isDisplay:false,
+					testMore:false
+				}
+			})
+
+
+		</script>
+	</body>
+</html>

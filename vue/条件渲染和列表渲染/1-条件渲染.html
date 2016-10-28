@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>v-if选择渲染的元素</h3>
+			<hr>
+			<p v-if="isDisplay">display:{{isDisplay}}</p>
+			<!-- <a href="">不能再v-if和v-else中间插入元素</a> -->
+			<p v-else>display:{{isDisplay}}</p>
+
+			<h3>使用template切换多个元素</h3>
+			<hr>
+			<input type="checkbox" v-model="testMore" />{{testMore}}
+			<template v-if="testMore">
+				<p>testMore:{{testMore}}</p>
+				<p>testMore:{{testMore}}</p>
+				<p>testMore:{{testMore}}</p>
+				<p>testMore:{{testMore}}</p>
+			</template>
+			<template v-else>
+				<p>testMore:{{testMore}}</p>
+				<p>testMore:{{testMore}}</p>
+				<p>testMore:{{testMore}}</p>
+				<p>testMore:{{testMore}}</p>
+			</template>
+			
+
+		</div>
+
+		<script>
+
+			/*
+				在模板中使用条件块，可以用指令v-if，也可以结合使用v-if v-else
+
+				注意：在v-if和v-else中不要出现任何别的元素，否则会标错;
+					   v-else 元素必须紧跟在 v-if 或 v-show 元素的后面——否则它不能被识别
+
+				如果要切换多个元素，可以使用包装元素template，最终渲染的元素中没有它
+
+			*/
+
+			new Vue({
+				el: "#demo",
+				data:{
+					isDisplay:false,
+					testMore:false
+				}
+			})
+
+
+		</script>
+	</body>
+</html>

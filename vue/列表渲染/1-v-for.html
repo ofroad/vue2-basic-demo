@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-for渲染数组</h3>
+			<hr>
+			<div v-for="item in items">
+				{{ item }}
+			</div>
+			<hr>
+			<div v-for="item of items">
+				{{ item }}
+			</div>
+			<hr>
+			<div v-for="(item,key) of items">
+				{{key}}：{{ item }}
+			</div>
+
+			<h3>使用v-for渲染对象</h3>
+			<hr>
+			<div v-for="(item,key,index) of object">
+				{{index}}：{{key}}：{{ item }}
+			</div>
+			<h3>使用v-for整数迭代</h3>
+			<hr>
+			<div v-for="(item,index) of 10">
+				{{index}}：{{item}}
+			</div>
+		</div>
+
+		<script>
+
+			/*
+				
+				使用v-for对选项列表进行渲染
+				语法格式：
+					item in array/object  | item of array/object 更加接近迭代器的感觉
+					其中item为列表中的值
+
+					可以设置key值和value值
+
+						(key,value) in Array/object
+
+					循环对象时候，可以使用的语法
+						(key,value,index) in object
+
+						index当前项的索引值
+
+					当遍历一个对象时，顺序是根据 Object.keys() 可枚举键名排列，不保证和 JavaScript 引擎实现是一致的。
+
+
+				v-for 也可以取整数。在这种情况下，它将重复多次模板
+			*/
+
+			new Vue({
+				el: "#demo",
+				data:{
+					items:["a","b","c"],
+					object:{
+						key1:"张三",
+						key2:"李四",
+						key3:"赵五"
+					}
+				}
+			})
+
+
+		</script>
+	</body>
+</html>

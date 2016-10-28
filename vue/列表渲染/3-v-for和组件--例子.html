@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-for和组件的toliList例子</h3>
+			<hr>
+			<input v-model="newValue" v-on:keydown.enter="addItemMethod" />
+			<div>
+				<item-component 
+					v-for="(item,index) of valueList"
+					v-bind:item="item"
+					v-on:remove="valueList.splice(index,1)"
+				>
+				</item-component>
+			</div>
+		</div>
+
+		<script>
+
+			/*
+				使用v-for和组件写一个toliList的例子
+
+			*/
+
+			Vue.component("item-component",{
+				template:`<p>
+							{{item}}
+							<input type="button" value="X" @click="$emit('remove')"   />
+						  </p>`,
+				props:["item"]
+			})
+
+			new Vue({
+				el:"#demo",
+				data:{
+					newValue:"",
+					valueList:["第一条数据","第二条数据"]
+				},
+				methods:{
+					addItemMethod:function (){
+						console.log(123);
+						this.valueList.push(this.newValue);
+						this.newValue = "";
+					}
+				}
+			})
+
+
+		</script>
+	</body>
+</html>

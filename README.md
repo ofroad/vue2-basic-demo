@@ -16,7 +16,7 @@ demo还在持续更新中。。。
 
 ## 关于vue2.0的一些文章
 
-### **看作者怎么说**
+### **看vue作者怎么说**
 
 
 * [Vue.js作者尢雨溪：新手向：Vue 2.0 的建议学习顺序](https://zhuanlan.zhihu.com/p/23134551)
@@ -36,6 +36,14 @@ demo还在持续更新中。。。
 
 * [radon-ui](https://luojilab.github.io/radon-ui/#!/)
 
+* [饿了么：Element](http://element.eleme.io/#/component/quickstart)
+
+* [N3](https://n3-components.github.io/N3-components/component.html)
+
+* [vux](https://vuxjs.gitbooks.io/vux/content/)
+
 #### # 手机端UI库
 
 * [Mint UI](http://mint-ui.github.io/docs/#!/zh-cn2)
+
+* [阿里出的构建移动端跨平台UI:Weex](https://alibaba.github.io/weex/)

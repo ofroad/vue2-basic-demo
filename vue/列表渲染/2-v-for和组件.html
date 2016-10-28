@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-for渲染数组</h3>
+			<hr>
+			<my-component v-for="item in items" ></my-component>
+			<hr>
+			<my-component v-for="(item,index) in items" :item="item" :index="index"></my-component>
+		</div>
+
+		<script>
+
+			/*
+				在自定义组件里，你可以像任何普通元素一样用 v-for 。
+				
+				不能自动将迭代的数据传入到组件中，因为组件有子级独立的作用域
+				要给组件传递数据，要使用props
+
+			*/
+
+			Vue.component("my-component",{
+				template:"<div>我是组件</span>{{index}}：{{item}}</div>",
+				props:["item","index"]
+			});
+
+			new Vue({
+				el: "#demo",
+				data:{
+					items:["a","b","c"],
+					object:{
+						key1:"张三",
+						key2:"李四",
+						key3:"赵五"
+					}
+				}
+			})
+
+
+		</script>
+	</body>
+</html>
