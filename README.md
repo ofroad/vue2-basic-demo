@@ -14,9 +14,20 @@ demo还在持续更新中。。。
 
 ---
 
-### 关于vue2.0的资讯
+## 关于vue2.0的一些文章
+
+### **看作者怎么说**
+
+---
+
+[Vue.js作者尢雨溪：新手向：Vue 2.0 的建议学习顺序](https://zhuanlan.zhihu.com/p/23134551)
 
 [Vue.js作者尢雨溪：Vue 2.0——渐进式前端解决方案](http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2650994529&idx=1&sn=953bf1d92cc2a7b278d0761d3e433803&chksm=bdbf0f328ac886245652735e4dfa1b39b1357b9f36ccf1b337714ac81810f8441d189ce89615&scene=0#wechat_redirect)
 
 [Vue作者尤雨溪：以匠人的态度不断打磨完善Vue （图灵访谈）](http://www.ituring.com.cn/article/273032)
 
+### **关于vueX的文章**
+
+---
+
+[Vue 和 Vuex 中的数据流](http://www.jianshu.com/p/2e0b6d19dd6a)
