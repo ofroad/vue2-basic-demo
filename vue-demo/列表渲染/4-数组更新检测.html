@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.fontSize{
+				font-size: 30px;
+			}
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-for</h3>
+			<hr>
+			<input type="button" value="通过索引改变值" v-on:click="changeValue" />
+			<div v-for="item of lists">{{item}}</div>
+			
+		</div>
+
+		<script>
+
+			
+				/*
+					Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：
+						push()
+						pop()
+						shift()
+						unshift()
+						splice()
+						sort()
+						reverse()
+
+						这些方法都是经过vue该写过的，达到改变数组更新视图的目的，和操作普通对象的体验一致
+
+					替换数组：改变原始数组的称呼
+
+						有些方法不改变原来数组，而返回的是操作后新数组，当用不改变原数组的方法时，只需替换旧数组用新的
+
+						具体参考：https://vuefe.cn/guide/list.html#重塑数组
+
+
+					注意：由于 JavaScript 的限制， Vue 不能检测以下变动的数组：
+
+							1. 直接设置一个项的索引时，例如： vm.items[indexOfItem] = newValue
+							2. 修改数组的长度时，例如： vm.items.length = newLength
+
+						使用两种方式可以解决：
+							1. 使用	Vue.set(index,newValue)方法
+							2. vm.items.splice(indexOfItem, 1, newValue)
+
+
+				*/
+
+				var vm = new Vue({
+					el:"#demo",
+					data:{
+						lists:[1,2,3,4]
+					},
+					methods:{
+						changeValue:function (){
+							//通过下标不能更新
+							//this.lists[0] = 1000;	
+							//使用set方法更新
+							//Vue.set(this.lists,0,1000);
+							//或者使用splice更新
+							this.lists.splice(0, 1, 1000)
+						}
+					}
+				});
+
+				vm.lists.push( 5 );
+
+				//给数组重新赋一个新数组
+				/*vm.lists = vm.lists.filter(function (item){
+					return item % 2 === 0;
+				});*/
+
+
+
+
+		</script>
+	</body>
+</html>
