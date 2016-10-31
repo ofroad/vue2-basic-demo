@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>todos</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <section class="todoapp" id="demo">
+        <div>
+            <header class="header" >
+                <h1>todos</h1>
+                <input 
+                    class="new-todo" 
+                    v-focus placeholder="请输入内容" 
+                    v-model="enterValue"
+                    v-on:keydown.enter="addItemMethod"
+                />
+            </header>
+            <section class="main" v-show="list.length" v-cloak>
+                <input class="toggle-all" type="checkbox" v-model="allDone" />
+                <ul class="todo-list">
+                    <li 
+                        :class="{completed:item.isSelected,editing:item == edtorTodo}" 
+                        v-for="(item,index) of filteredItems"
+                    >
+                        <div class="view">
+                            <input 
+                                class="toggle" 
+                                type="checkbox"
+                                v-model="item.isSelected"
+                            >
+                            <label
+                                @dblclick="edtorItem(item)"
+                            >{{ item.title }}</label>
+                            <button 
+                                class="destroy" 
+                                @click="removeItem(index)"
+                            ></button>
+                        </div>
+                        <input 
+                            v-focus="item == edtorTodo" 
+                            v-model="item.title"
+                            class="edit" 
+                            :value="item.title"
+                            @blur="doneEdtor(item,index)"
+                            @keyup.enter="doneEdtor(item,index)"
+                            @keyup.esc="cancelEdtor(item)"
+                        >
+                    </li>
+                </ul>
+            </section>
+            <footer class="footer"  v-show="list.length" v-cloak>
+	            <span class="todo-count">
+	            	<strong>{{hasSelect}}</strong>
+	            	<span>条未选中</span>
+	            </span>
+                <ul class="filters">
+                    <li><a href="#/all" :class="{selected:visibility==='all'}">All</a></li>
+                    <li><a href="#/active" :class="{selected:visibility==='active'}">Active</a></li>
+                    <li><a href="#/completed" :class="{selected:visibility==='completed'}">Completed</a></li>
+                </ul>
+                {{filteredItems.length}}
+                <button class="clear-completed" v-show="list.length">
+                    Clear completed
+                </button>
+            </footer>
+        </div>
+    </section>
+    <script src="./app.js"></script>
+</body>
+
+</html>
