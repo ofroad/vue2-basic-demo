@@ -47,3 +47,13 @@ demo还在持续更新中。。。
 * [Mint UI](http://mint-ui.github.io/docs/#!/zh-cn2)
 
 * [阿里出的构建移动端跨平台UI:Weex](https://alibaba.github.io/weex/)
+
+### **vue2.0源码分析**
+
+* [勾三股四:Code Review for Vue 2.0 Preview](http://jiongks.name/blog/code-review-for-vue-next/)
+
+* [Vue2.0源代码阅读](http://www.kancloud.cn/zmwtp/vue2/148822)
+
+### **vue2.0案例实战**
+
+* [Vue2.0 新手完全填坑攻略——从环境搭建到展示豆瓣的电影列表](https://aotu.io/notes/2016/10/13/vue2/)
