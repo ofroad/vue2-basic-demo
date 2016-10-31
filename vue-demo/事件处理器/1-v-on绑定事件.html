@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-for渲染数组</h3>
+			<hr>
+			<input type="button" value="点击" v-on:click=" counter+=1 "  />
+			<p>被点击了{{counter}}次</p>
+			<hr>
+			<input type="button" value="点击" v-on:click="countFn"  />
+			<p>被点击了{{counter2}}次</p>
+			<hr>
+			<input type="button" value="点击测试事件对象" v-on:click="testEvent"  />
+			<p>被点击了{{counter2}}次</p>
+			<hr>
+			<input type="button" value="点击测试内联处理器方法" v-on:click="testLineEvent('hello',$event)"  />
+			<p>被点击了{{counter2}}次</p>
+		</div>
+
+		<script>
+
+			/*
+				
+				可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码。
+
+				触发事件的逻辑可能会很复杂，所以定义一个方法在事件触发的时候调用
+
+				把方法写在选项对象的methods属性中
+
+				事件对象：
+
+					在触发事件执行的方法中使用事件对象
+
+				内联处理器方法
+					可以用内联js语句，如果用到了事件对象，需要用$event传递
+
+			*/
+
+			new Vue({
+				el: "#demo",
+				data:{
+					counter:0,
+					counter2:0
+				},
+				methods:{
+					countFn:function (){
+						this.counter2 += 1;	
+					},
+					testEvent:function (event){
+						//event为原生的事件对象
+						console.log( event.target );  //获取目标元素，是一个原生的DOM元素
+						console.log( event );	
+					},
+					testLineEvent:function (h,event){
+						console.log(h);	
+						console.log(event);	//原生的事件对象
+					}
+				}
+			})
+
+
+		</script>
+	</body>
+</html>

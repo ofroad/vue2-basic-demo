@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>使用v-for渲染数组</h3>
+			<hr/>
+			<!-- 阻止单击事件冒泡 -->
+			<!--<a v-on:click.stop="doThis"></a>-->
+			<!-- 提交事件不再重载页面 -->
+			<!--<form v-on:submit.prevent="onSubmit"></form>-->
+			<!-- 修饰符可以串联  -->
+			<!--<a v-on:click.stop.prevent="doThat"></a>-->
+			<!-- 只有修饰符 -->
+			<!--<form v-on:submit.prevent></form>-->
+			<!-- 添加事件侦听器时使用时间捕获模式 -->
+			<!--<div v-on:click.capture="doThis">...</div>-->
+			<!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+			<!--<div v-on:click.self="doThat">...</div>-->
+
+
+		</div>
+
+		<script>
+
+			/*
+				事件修饰符
+					methods的方法中只处理纯粹的数据逻辑，而不去处理DOM事件细节，就用到了事件修饰符
+
+					通过由点(.)表示的指令后缀来调用修饰符
+
+					.stop
+					.prevent
+					.capture
+					.self
+					
+					按键修饰符
+						全部的按键别名：
+
+							.enter
+							.tab
+							.delete (捕获 “删除” 和 “退格” 键)
+							.esc
+							.space
+							.up
+							.down
+							.left
+							.right
+
+					可以通过全局 config.keyCodes 对象自定义按键修饰符别名：
+					// 可以使用 v-on:keyup.f1
+					Vue.config.keyCodes.f1 = 112
+		
+
+			*/
+
+			new Vue({
+				el: "#demo",
+				data:{
+					counter:0,
+					counter2:0
+				},
+				methods:{
+					countFn:function (){
+						this.counter2 += 1;	
+					},
+					testEvent:function (event){
+						//event为原生的事件对象
+						console.log( event.target );  //获取目标元素，是一个原生的DOM元素
+						console.log( event );	
+					},
+					testLineEvent:function (h,event){
+						console.log(h);	
+						console.log(event);	//原生的事件对象
+					}
+				}
+			})
+
+
+		</script>
+	</body>
+</html>
