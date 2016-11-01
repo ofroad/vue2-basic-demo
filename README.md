@@ -23,6 +23,8 @@
 
 - vue2.0中文文档：
 	[https://vuefe.cn/](https://vuefe.cn/)
+- vue2.0中英文对照文档
+	[http://vue.sike.io/](http://vue.sike.io/)
 
 *建议：在学习过程中不只是看中文文档，还要对着英文文档看。最好是阅读英文文档。*
 
