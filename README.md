@@ -43,8 +43,25 @@ demo还在持续更新中。。。
 
 ### **关于vueX的文章**
 
-
 * [Vue 和 Vuex 中的数据流](http://www.jianshu.com/p/2e0b6d19dd6a)
+
+### **vue系列文章**
+
+* [前端开发之走进Vue.js](https://segmentfault.com/a/1190000007328936)
+
+### **vue2.0源码分析**
+
+* [勾三股四:Code Review for Vue 2.0 Preview](http://jiongks.name/blog/code-review-for-vue-next/)
+
+* [Vue2.0源代码阅读](http://www.kancloud.cn/zmwtp/vue2/148822)
+
+* [vue2.0源码分析之理解响应式架构](https://segmentfault.com/a/1190000007334535)
+
+### **vue2.0案例实战**
+
+* [Vue2.0 新手完全填坑攻略——从环境搭建到展示豆瓣的电影列表](https://aotu.io/notes/2016/10/13/vue2/)
+
+* [基于Vue.js的表格分页组件](https://segmentfault.com/a/1190000005174322)
 
 ### **基于vue的组件库**
 
@@ -64,12 +81,3 @@ demo还在持续更新中。。。
 
 * [阿里出的构建移动端跨平台UI:Weex](https://alibaba.github.io/weex/)
 
-### **vue2.0源码分析**
-
-* [勾三股四:Code Review for Vue 2.0 Preview](http://jiongks.name/blog/code-review-for-vue-next/)
-
-* [Vue2.0源代码阅读](http://www.kancloud.cn/zmwtp/vue2/148822)
-
-### **vue2.0案例实战**
-
-* [Vue2.0 新手完全填坑攻略——从环境搭建到展示豆瓣的电影列表](https://aotu.io/notes/2016/10/13/vue2/)
