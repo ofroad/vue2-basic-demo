@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			#mask {
+				width: 100%;
+				height: 100%;
+				background: #000;
+				opacity: .5;
+				position: fixed;
+				left: 0;
+				top:0;
+			}
+			.dialog {
+				width: 300px;
+				height: 200px;
+				background: #fff;
+				position: fixed;
+				left: 50%;
+				top:50%;
+				margin:-100px 0 0 -150px;
+				z-index: 100;
+			}
+			.content {
+				height: 100px;
+			}
+		</style>
+		<script src="../../../vue.js"></script>
+	</head>
+
+	<body>
+
+		<div id="demo">
+			<input type="button" value="确定删除？" @click="testDialog" />
+			<input type="button" value="测试另一个" @click="testDialog2" />
+			
+			<ul>
+				<li v-for="(item,index) in list" @click="testDialog(index)">
+					{{item}}
+				</li>
+			</ul>
+
+			<component v-on:ok="ok" v-on:close-method="closeMthods" :close-dialog="closeDialog" :is="draglog">
+				<h3 slot="title">我的第一个弹框</h3>
+				<div slot="content" class="content">
+					真的确定要删除吗？
+				</div>
+			</component >
+			<component v-on:close-method="closeMthods2" :close-dialog="closeDialog2" :is="draglog2">
+				<h3 slot="title">2</h3>
+				<div slot="content" class="content">
+					真的确定要删除吗？
+				</div>
+
+			</component >
+		</div>
+		
+		<!--弹框组件-->
+
+		<!-- <div id="draglog">
+			<div class="draglog">
+				<h3>这是一个弹框</h3>
+				<div class="content">
+					这里是内容
+				</div>
+				<div>
+					<input type="button" value="确认" />
+					<input type="button" value="取消" />
+				</div>
+			</div>
+		</div>
+		<div id="mask"></div> -->
+
+		<script src="dialog.js"></script>
+	</body>
+</html>
