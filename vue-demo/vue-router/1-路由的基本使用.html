@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="../../vue.js"></script>
+		<script src="../../vue-router.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h3>测试vue-router</h3>
+			<p>
+				<router-link to="/home">基本信息</router-link>
+				<router-link to="/skill">技能评估</router-link>
+				<router-link to="/cases">作品展示</router-link>
+			</p>
+			<router-view></router-view>
+		</div>
+		<script>
+
+			/*
+					配置组件和路由映射，然后告诉vue-router在哪里渲染，也就是添加router-view
+
+					使用 router-link 组件来导航.
+				    通过传入 `to` 属性指定链接.
+				    <router-link> 默认会被渲染成一个 `<a>` 标签
+
+				    路由匹配的组件会在一对router-view中渲染
+
+				    route 路线
+				    router 路由器
+
+
+				    使用路由需要的步骤：
+				    	1. 先定义好组件
+				    	2. 配置路由对应的组件
+				    	3. 创建router实例
+				    	4. 在实例化根实例使用路由
+			*/
+
+			//定义组件对象
+			const home = {
+				template:"<div>这是网页的首页</div>"
+			}
+			const skill = {
+				template:"<div>技能评估</div>"
+			}
+			const cases = {
+				template:"<div>作品展示</div>"
+			}
+			const index = {
+				template:"<div>这是根目录下</div>"
+			}
+
+			//定义路由
+			//每个路由映射一个组件
+
+			const routes = [
+				{path:"/",component:index},
+				{path:"/home",component:home},
+				{path:"/skill",component:skill},
+				{path:"/cases",component:cases}
+			]
+
+			//创建router实例，然后传入routers配置
+
+			const router = new VueRouter({
+				routes
+			})
+
+			//通过传入构造函数中的选项参数router属性配置路由，让整个应用可以使用路由，
+			new Vue({
+				router
+			})
+			.$mount("#demo");
+
+		</script>
+	</body>
+</html>

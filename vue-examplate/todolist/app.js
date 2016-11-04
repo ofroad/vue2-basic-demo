@@ -53,17 +53,13 @@ var vm = new Vue({
 	watch:{
 		list:{
 			handler:function (todo){
-				console.log(1222);
-				this.list = todo;
-
-				console.log( this.list );
+				//this.list = todo;
 			},
 			deep:true
 		}
 	},
 	computed:{
 		filteredItems:function (){
-			console.log(11111111111111);
 			return filters[this.visibility](this.list)
 		},
 		hasSelect:function (){
@@ -113,6 +109,9 @@ var vm = new Vue({
 		cancelEdtor:function (todo){
 			this.edtorTodo = null;
 			todo.title = this.beforEdtorValue;	
+		},
+		removeAllCompleted:function (){
+			this.list = filters.active(this.list);	
 		}
 	}
 });

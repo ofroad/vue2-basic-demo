@@ -64,8 +64,7 @@
                     <li><a href="#/active" :class="{selected:visibility==='active'}">Active</a></li>
                     <li><a href="#/completed" :class="{selected:visibility==='completed'}">Completed</a></li>
                 </ul>
-                {{filteredItems.length}}
-                <button class="clear-completed" v-show="list.length">
+                <button class="clear-completed" @click = "removeAllCompleted" v-show="list.length > hasSelect">
                     Clear completed
                 </button>
             </footer>
