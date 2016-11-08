@@ -65,6 +65,8 @@ demo还在持续更新中。。。
 
 * [基于Vue.js的表格分页组件](https://segmentfault.com/a/1190000005174322)
 
+* [关于 vue 弹窗组件的一些感想](https://segmentfault.com/a/1190000006849814)
+
 ### **基于vue的组件库**
 
 #### # pc端UI库
@@ -82,4 +84,6 @@ demo还在持续更新中。。。
 * [Mint UI](http://mint-ui.github.io/docs/#!/zh-cn2)
 
 * [阿里出的构建移动端跨平台UI:Weex](https://alibaba.github.io/weex/)
+
+* [vue-carbon](https://alibaba.github.io/weex/)
 
