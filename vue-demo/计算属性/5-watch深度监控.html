@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="../../vue.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<input v-model="list[0].name"/>
+			<p>{{list[0].name}}</p>
+		</div>
+
+		<script>
+			var vm = new Vue({
+				el:"#demo",
+				data:{
+					list:[
+						{
+							name:1
+						}
+					]
+				},
+				watch:{
+					list:{
+						handler:function (val){
+							console.log("1111");
+						},
+						deep:true
+					}
+				}
+			});
+
+			vm.firstName = "zhang "
+
+		</script>
+	</body>
+</html>
